@@ -1,0 +1,80 @@
+ .song-card{
+    width:400px;
+    height: 300px;
+    color: white !important;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    margin:10px;
+    position: relative;
+    padding: 20px;
+    display: flex;
+
+    flex-direction: column;
+   
+}
+ .song-card .song-close{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    z-index: 30;
+}
+ .song-card .song-details{
+    display: flex;
+    z-index:30;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+ .song-card .song-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    bottom: 0;
+}
+ .song-card .song-actions{
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+    z-index: 30;
+}
+ .song-card .song-image{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+ .song-card .song-image img{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    z-index:1;
+    mix-blend-mode:multiply;
+    opacity: 0;
+    transition:0.5s;
+    background:rgba(0, 0, 0, 0.7);
+    opacity: 1;
+
+}
+.song-image img{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+.audio{
+    width:250px;
+    height: 30px;
+}
+.audio source{
+    background-color: red !important;
+}
