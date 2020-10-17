@@ -1,0 +1,15 @@
+.lyric-container{
+    display: flex;
+    justify-content: center;
+}
+
+.lyric-container p{
+    font-family: 'Roboto',sans-serif;
+    padding:10px;
+    text-align: center;
+    color:#fff;
+    width:30%;
+    border-radius: 10px;
+    padding:20px;
+    background-color: rgba(0, 0, 0, 0.65);
+}

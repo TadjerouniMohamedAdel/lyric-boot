@@ -1,0 +1,17 @@
+.navigation{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.link-router{
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    margin:20px;
+    font-family: 'Lobster' !important;
+}
+.MuiTab-wrapper{
+    font-family: 'Lobster';
+    font-size: 20px;;
+}

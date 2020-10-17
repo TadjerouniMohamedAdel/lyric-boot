@@ -9,6 +9,7 @@ import {
   Link
 } from "react-router-dom";
 import Lyric from './components/Lyric/Lyric';
+import Navigation from './components/Navigation/Navigation';
 
 function App() {
 const favoritesArray = [
@@ -27,10 +28,8 @@ const [favorites,setFavorites] = useState(favoritesArray)
   }
   return (
     <div className="App">
-        <h1 align="center">
-          Lyric app
-        </h1>
-      
+        <img src={'/lyric-boot.png'}  className="logo"/>
+        <Navigation />
 
         <Switch>
           <Route path="/lyric">
@@ -38,6 +37,9 @@ const [favorites,setFavorites] = useState(favoritesArray)
           </Route>
           <Route path="/favorites">
             <Favorites favorites={favorites} deleteFavorite={deleteFavorite}/>
+          </Route>
+          <Route path="/historique">
+              historique component
           </Route>
           <Route path="/">
             <Search />

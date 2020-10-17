@@ -8,12 +8,19 @@ export default function Lyric() {
     const [isLoading,setIsLoading] = useState(true)
     const [lyric,setLyric] = useState('')
     
+    String.prototype.replaceAt = function(index, replacement) {
+        return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+    }
+
     useEffect(() => {
         const song = location.state.song
         console.log(song)
-        let title = song.title.split(" ").join("%20")
-        let artist = song.artist.name.split(" ").join("%20")
-        console.log(title,artist)
+        let title = song.title.split(" ").join("%20").toLowerCase()
+        let titleRand = parseInt(Math.random() * title.length)
+        let artist = song.artist.name.split(" ").join("%20").toLowerCase()
+        let artistRand = parseInt(Math.random() *artist.length)
+        artist = artist.replaceAt(artistRand,artist.charAt(artistRand).toUpperCase())
+        title = title.replaceAt(titleRand,title.charAt(titleRand).toUpperCase())
         Axios({
             method:'get',
             url:`https://api.lyrics.ovh/v1/${artist}/${title}`
@@ -26,7 +33,7 @@ export default function Lyric() {
         })
     }, [])
     return (
-        <div className="">
+        <div className="lyric-container">
             {
                 isLoading ?(
                     <CircularProgress />

@@ -1,9 +1,18 @@
 .search-section{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
 }
 .search-input{
     width:70% !important;
+}
+
+.results-container{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
