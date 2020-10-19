@@ -4,6 +4,10 @@ export const historyReducer = (history,action) =>{
             return [...history,action.value]
             break;
     
+        case "CLEAR_HISTORY":
+            console.log("CLEAR_HISTORY")
+            return []
+            break;
         default:
             return history
             break;

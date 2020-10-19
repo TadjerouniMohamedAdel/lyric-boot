@@ -9,9 +9,6 @@ import './Navigation.css'
 export default function Navigation() {
     return (
         <div className="navigation">
-           {/* Search</Link> */}
-            {/* Favorites</Link>
-           historique</Link> */}
             <Tabs
                 variant="fullWidth"
                 indicatorColor="secondary"
