@@ -41,12 +41,13 @@ export default function Search() {
             {suggests.map(suggest=>(
                 
                 // suggest.explicit_lyrics ==true &&
-                 <SongCard
-                    key={`suggest-${suggest.id}`} 
-                    song={suggest} 
-                    toggleFavorite={dispatch} 
-                    isFavorite={favorites.findIndex(item =>item.id === suggest.id) >= 0 ? "favorite":"no-favorite"}
-                />
+                //  <SongCard
+                //     key={`suggest-${suggest.id}`} 
+                //     song={suggest} 
+                //     toggleFavorite={dispatch} 
+                //     isFavorite={favorites.findIndex(item =>item.id === suggest.id) >= 0 ? "favorite":"no-favorite"}
+                // />
+                    <div>{suggest.id}</div>
             ))}
         </div>
 
