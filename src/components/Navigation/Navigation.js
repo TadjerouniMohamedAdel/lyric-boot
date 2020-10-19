@@ -25,7 +25,7 @@ export default function Navigation() {
                 <Link className="link-router" to="/favorites">
                         <Tab icon={<FavoriteIcon />} label="FAVORITES" />
                 </Link>
-                <Link className="link-router" to="/historique">
+                <Link className="link-router" to="/history">
                         <Tab icon={<HistoryIcon />} label="HISTORY" />
 
                 </Link>

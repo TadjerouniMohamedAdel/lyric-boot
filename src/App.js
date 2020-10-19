@@ -11,6 +11,8 @@ import {
 import Lyric from './components/Lyric/Lyric';
 import Navigation from './components/Navigation/Navigation';
 import FavoriteContextProvider from './Contexts/FavoriteContext';
+import HistoryContextProvider from './Contexts/HistoryContext';
+import History from './components/History/History';
 
 function App() {
 
@@ -19,21 +21,24 @@ function App() {
     <div className="App">
         <img src={'/lyric-boot.png'}  className="logo"/>
             <FavoriteContextProvider>
-                <Navigation />
-                <Switch>
-                  <Route path="/lyric">
-                      <Lyric />
-                  </Route>
-                  <Route path="/favorites">
-                        <Favorites />
-                  </Route>
-                  <Route path="/historique">
-                      historique component
-                  </Route>
-                  <Route path="/">
-                      <Search />
-                  </Route>
-                </Switch>
+                <HistoryContextProvider>
+                  <Navigation />
+                  <Switch>
+                      <Route path="/lyric">
+                          <Lyric />
+                      </Route>
+                      <Route path="/favorites">
+                            <Favorites />
+                      </Route>
+                      <Route path="/history">
+                          <History />
+                      </Route>
+                      <Route path="/">
+                          <Search />
+                      </Route>
+                  </Switch>
+
+                </HistoryContextProvider>
           </FavoriteContextProvider>
  
         

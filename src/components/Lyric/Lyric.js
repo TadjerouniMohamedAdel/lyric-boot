@@ -1,20 +1,23 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useContext} from 'react'
 import './Lyric.css'
 import {useLocation} from 'react-router-dom'
 import { CircularProgress } from '@material-ui/core';
 import Axios from 'axios';
+import { HistoryContext } from '../../Contexts/HistoryContext';
 export default function Lyric() {
     const location = useLocation();
     const [isLoading,setIsLoading] = useState(true)
     const [lyric,setLyric] = useState('')
     const song = location.state.song
-    
+     const {dispatch} = useContext(HistoryContext)
+
+
     String.prototype.replaceAt = function(index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
     }
 
     useEffect(() => {
-        console.log(song)
+        dispatch({type:"HISTORY_PUSH",value:song})
         let title = song.title.split(" ").join("%20").toLowerCase()
         let titleRand = parseInt(Math.random() * title.length)
         let artist = song.artist.name.split(" ").join("%20").toLowerCase()
