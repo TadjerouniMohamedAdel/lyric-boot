@@ -2,18 +2,18 @@ import React from 'react'
 import { Paper,Button, IconButton } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import BookIcon from '@material-ui/icons/Book';
-import CloseIcon from '@material-ui/icons/Close';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import './SongCard.css'
 
-export default function SongCard({song,deleteSong}) {
+export default function SongCard({song,isFavorite,toggleFavorite}) {
     return (
         <Paper key={song.id} className="song-card">
         <div className="song-image">
             <img src={song.artist.picture_medium} />
         </div>
-        <div className="song-close">
-            <IconButton onClick={()=>deleteSong(song.id)}>
-                <CloseIcon style={{ fontSize: 26 ,color:'white'}}/>
+        <div className="song-favorite">
+            <IconButton onClick={()=>toggleFavorite(song)}>
+                <FavoriteIcon className={isFavorite} style={{ fontSize: 26 }}/>
             </IconButton>
         </div>
         <div className="song-details">

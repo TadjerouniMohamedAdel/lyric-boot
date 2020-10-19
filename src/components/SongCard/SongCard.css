@@ -13,11 +13,23 @@
     flex-direction: column;
    
 }
- .song-card .song-close{
+ .song-card .song-favorite{
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
+    transition: 0.5s;
     z-index: 30;
+}
+.song-card .song-favorite .favorite{
+    color:#8c4c05;
+    transform: scale(1.5);
+    transition: 0.5s;
+}
+
+.song-card .song-favorite .no-favorite{
+    color:white;
+    transform: scale(1);
+    transition: 0.5s;
 }
  .song-card .song-details{
     display: flex;

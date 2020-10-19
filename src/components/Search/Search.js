@@ -1,12 +1,14 @@
-import React,{ useState , useEffect } from 'react';
+import React,{ useState , useEffect , useContext } from 'react';
 import TextField from '@material-ui/core/TextField';
 import './Search.css'
 import Axios from 'axios';
 import SongCard from '../SongCard/SongCard';
+import { FavoriteContext } from '../../Contexts/FavoriteContext';
 
 export default function Search() {
     const [song,setSong] = useState('')
     const [suggests,setSuggests] = useState([])
+    const {favorites,toggleFavorite} =  useContext(FavoriteContext)
 
     useEffect(() => {
         console.log(song.split(" ").join("%20"))
@@ -39,7 +41,11 @@ export default function Search() {
             {suggests.map(suggest=>(
                 
                 // suggest.explicit_lyrics ==true &&
-                 <SongCard song={suggest} deleteSong={()=>{}} />
+                 <SongCard 
+                    song={suggest} 
+                    toggleFavorite={toggleFavorite} 
+                    isFavorite={favorites.findIndex(item =>item.id === suggest.id) >= 0 ? "favorite":"no-favorite"}
+                />
             ))}
         </div>
 
