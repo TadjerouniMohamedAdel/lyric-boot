@@ -12,7 +12,7 @@ export default function SongCard({song,isFavorite,toggleFavorite}) {
             <img src={song.artist.picture_medium} />
         </div>
         <div className="song-favorite">
-            <IconButton onClick={()=>toggleFavorite(song)}>
+            <IconButton onClick={()=>toggleFavorite({type:"TOGGLE_FAVORITE",value:song})}>
                 <FavoriteIcon className={isFavorite} style={{ fontSize: 26 }}/>
             </IconButton>
         </div>

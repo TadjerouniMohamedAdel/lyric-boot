@@ -8,7 +8,7 @@ import { FavoriteContext } from '../../Contexts/FavoriteContext';
 export default function Search() {
     const [song,setSong] = useState('')
     const [suggests,setSuggests] = useState([])
-    const {favorites,toggleFavorite} =  useContext(FavoriteContext)
+    const {favorites,dispatch} =  useContext(FavoriteContext)
 
     useEffect(() => {
         console.log(song.split(" ").join("%20"))
@@ -43,7 +43,7 @@ export default function Search() {
                 // suggest.explicit_lyrics ==true &&
                  <SongCard 
                     song={suggest} 
-                    toggleFavorite={toggleFavorite} 
+                    toggleFavorite={dispatch} 
                     isFavorite={favorites.findIndex(item =>item.id === suggest.id) >= 0 ? "favorite":"no-favorite"}
                 />
             ))}

@@ -6,13 +6,13 @@ import { FavoriteContext } from '../../Contexts/FavoriteContext'
 
 export default function Favorites() {
     
-    const {favorites,toggleFavorite} = useContext(FavoriteContext)
+    const {favorites,dispatch} = useContext(FavoriteContext)
     
     
     return (
         <div className="favorites-container">
             {favorites.map(favorite=>(
-                <SongCard song={favorite} isFavorite="favorite" toggleFavorite={toggleFavorite} />
+                <SongCard song={favorite} isFavorite="favorite" toggleFavorite={dispatch} />
             ))}
         </div>
     )
