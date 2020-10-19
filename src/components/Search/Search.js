@@ -38,17 +38,17 @@ export default function Search() {
             />
 
         <div className="results-container">
-            {suggests.map(suggest=>(
+            {suggests.map(suggest=>{
+                return(
                 
-                // suggest.explicit_lyrics ==true &&
-                //  <SongCard
-                //     key={`suggest-${suggest.id}`} 
-                //     song={suggest} 
-                //     toggleFavorite={dispatch} 
-                //     isFavorite={favorites.findIndex(item =>item.id === suggest.id) >= 0 ? "favorite":"no-favorite"}
-                // />
-                    <div>{suggest.id}</div>
-            ))}
+                
+                 <SongCard
+                    key={`suggest-${suggest.id}`} 
+                    song={suggest} 
+                    toggleFavorite={dispatch} 
+                    isFavorite={favorites.findIndex(item =>item.id === suggest.id) >= 0 ? "favorite":"no-favorite"}
+                />
+            )})}
         </div>
 
         </div>
