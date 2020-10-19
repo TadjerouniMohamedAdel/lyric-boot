@@ -21,19 +21,19 @@ export default function SongCard({song,deleteSong}) {
                 <h3>{song.title}</h3>
                 <span><b>Artist:</b> <i>{song.artist.name}</i></span>
                 <span><b>Album:</b> <i>{song.album.title}</i></span>
-                <audio controls className="audio" >
+                {/* <audio controls className="audio" >
                     <source src={song.preview} type="audio/mpeg" />
-                </audio>
+                </audio> */}
+            </div>
+            <div className="song-actions">
+                <Link to={{pathname:"/lyric",state:{song:song}}} style={{textDecoration:"none"}}>
+                    <Button  variant="contained" style={{color:"white",backgroundColor:"rgba(255,255,255,0.3)"}}>
+                        <BookIcon style={{ fontSize: 16 }}/>
+                        Get the lyric
+                    </Button>
+                </Link>
             </div>
 
-        </div>
-        <div className="song-actions">
-             <Link to={{pathname:"/lyric",state:{song:song}}} style={{textDecoration:"none"}}>
-                <Button  variant="contained" style={{color:"white",backgroundColor:"rgba(255,255,255,0.3)"}}>
-                    <BookIcon style={{ fontSize: 16 }}/>
-                    Get the lyric
-                </Button>
-             </Link>
         </div>
     </Paper>
     )

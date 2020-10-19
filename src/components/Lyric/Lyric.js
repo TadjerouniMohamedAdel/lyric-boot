@@ -7,13 +7,13 @@ export default function Lyric() {
     const location = useLocation();
     const [isLoading,setIsLoading] = useState(true)
     const [lyric,setLyric] = useState('')
+    const song = location.state.song
     
     String.prototype.replaceAt = function(index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
     }
 
     useEffect(() => {
-        const song = location.state.song
         console.log(song)
         let title = song.title.split(" ").join("%20").toLowerCase()
         let titleRand = parseInt(Math.random() * title.length)
@@ -38,8 +38,11 @@ export default function Lyric() {
                 isLoading ?(
                     <CircularProgress />
 
-                ):(
-                    <p dangerouslySetInnerHTML={{__html: lyric}}></p>
+                ):( 
+                    <div className="lyric-content">
+                        <h2>{song.title} :</h2>
+                        <p dangerouslySetInnerHTML={{__html: lyric}}></p>
+                    </div>
                 )
             }
         </div>

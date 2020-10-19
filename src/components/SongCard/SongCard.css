@@ -4,7 +4,7 @@
     color: white !important;
     overflow: hidden;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.7) !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
     margin:10px;
     position: relative;
     padding: 20px;
@@ -22,16 +22,22 @@
  .song-card .song-details{
     display: flex;
     z-index:30;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    margin-bottom:10px;
 }
  .song-card .song-info{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
+    font-family: 'Roboto',sans-serif;
     bottom: 0;
+}
+.song-card .song-info h3{
+    font-family: 'Lobster',sans-serif !important;
 }
  .song-card .song-actions{
     margin-top:20px;
@@ -59,7 +65,7 @@
     mix-blend-mode:multiply;
     opacity: 0;
     transition:0.5s;
-    background:rgba(0, 0, 0, 0.7);
+    background:rgba(0, 0, 0, 0.6);
     opacity: 1;
 
 }
@@ -74,7 +80,5 @@
 .audio{
     width:250px;
     height: 30px;
-}
-.audio source{
-    background-color: red !important;
+    margin-top :10px;
 }
