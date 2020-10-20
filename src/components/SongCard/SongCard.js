@@ -9,7 +9,7 @@ export default function SongCard({song,isFavorite,toggleFavorite}) {
     return (
         <Paper key={song.id} className="song-card">
         <div className="song-image">
-            <img src={song.artist.picture_medium} />
+            <img src={song.artist.picture_medium} alt={`${song.artist.name}-picture`}/>
         </div>
         <div className="song-favorite">
             <IconButton onClick={()=>toggleFavorite({type:"TOGGLE_FAVORITE",value:song})}>
