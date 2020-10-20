@@ -21,9 +21,6 @@ export default function SongCard({song,isFavorite,toggleFavorite}) {
                 <h3>{song.title}</h3>
                 <span><b>Artist:</b> <i>{song.artist.name}</i></span>
                 <span><b>Album:</b> <i>{song.album.title}</i></span>
-                {/* <audio controls className="audio" >
-                    <source src={song.preview} type="audio/mpeg" />
-                </audio> */}
             </div>
             <div className="song-actions">
                 <Link to={{pathname:"/lyric",state:{song:song}}} style={{textDecoration:"none"}}>

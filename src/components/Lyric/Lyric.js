@@ -4,6 +4,8 @@ import {useLocation} from 'react-router-dom'
 import { CircularProgress } from '@material-ui/core';
 import Axios from 'axios';
 import { HistoryContext } from '../../Contexts/HistoryContext';
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+
 export default function Lyric() {
     const location = useLocation();
     const [isLoading,setIsLoading] = useState(true)
@@ -41,7 +43,18 @@ export default function Lyric() {
                 isLoading ?(
                     <CircularProgress />
 
-                ):( 
+                ): lyric=="" ?(
+                    <div className="lyric-content-error">
+                        <h2>{song.title} :</h2>
+                        <p>
+                            <SentimentVeryDissatisfiedIcon style={{fontSize:80}}/> <br/>
+                            There is no lyric of this song, please try another search.<br/>A same song may have many results!
+
+                        </p>
+                    </div>
+                )
+                
+                :( 
                     <div className="lyric-content">
                         <h2>{song.title} :</h2>
                         <p dangerouslySetInnerHTML={{__html: lyric}}></p>

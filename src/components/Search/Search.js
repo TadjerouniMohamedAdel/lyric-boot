@@ -4,6 +4,8 @@ import './Search.css'
 import Axios from 'axios';
 import SongCard from '../SongCard/SongCard';
 import { FavoriteContext } from '../../Contexts/FavoriteContext';
+import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+
 
 export default function Search() {
     const [song,setSong] = useState('')
@@ -12,15 +14,18 @@ export default function Search() {
 
     useEffect(() => {
         console.log(song.split(" ").join("%20"))
-        Axios({
-            method:'get',
-            url:` https://api.lyrics.ovh/suggest/${song}`
-        }).then(response=>{
-            console.log("suggest",response.data.data)
-            setSuggests(response.data.data)
-        }).catch(error=>{
-            console.log("error request suggests",error)
-        })
+        if(song!==""){
+            Axios({
+                method:'get',
+                url:` https://api.lyrics.ovh/suggest/${song}`
+            }).then(response=>{
+                console.log("suggest",response.data.data)
+                setSuggests(response.data.data)
+            }).catch(error=>{
+                console.log("error request suggests",error)
+            })
+
+        }
     }, [song])
 
     
@@ -38,7 +43,7 @@ export default function Search() {
             />
 
         <div className="results-container">
-            {suggests.map(suggest=>{
+            {suggests.length >0 ? suggests.map(suggest=>{
                 return(
                     <SongCard
                         key={`suggest-${suggest.id}`} 
@@ -46,7 +51,17 @@ export default function Search() {
                         toggleFavorite={dispatch} 
                         isFavorite={favorites.findIndex(item =>item.id === suggest.id) >= 0 ? "favorite":"no-favorite"}
                     />
-            )})}
+            )})
+            : song!=='' &&(
+                <div className="alert-content">
+                    <SentimentVeryDissatisfiedIcon style={{fontSize:80}}/>
+                    <p>
+                    We have no suggests for your request! , please try another research
+
+                    </p>
+                </div>
+            )
+            }
         </div>
 
         </div>
