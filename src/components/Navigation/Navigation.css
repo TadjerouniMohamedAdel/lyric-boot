@@ -15,3 +15,24 @@
     font-family: 'Lobster';
     font-size: 20px;;
 }
+
+@media(max-width:430px){
+    .MuiTab-wrapper{
+        font-family: 'Lobster';
+        font-size: 15px;;
+    }
+    .link-router{
+        margin:10px;
+    }
+    
+}
+@media(max-width:310px){
+    .MuiTab-wrapper{
+        font-family: 'Lobster';
+        font-size: 14px;;
+    }
+    .link-router{
+        margin:9px;
+    }
+    
+}
