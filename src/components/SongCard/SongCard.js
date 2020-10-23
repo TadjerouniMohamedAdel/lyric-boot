@@ -24,7 +24,7 @@ export default function SongCard({song,isFavorite,toggleFavorite}) {
             </div>
             <div className="song-actions">
                 <Link to={{pathname:"/lyric",state:{song:song}}} style={{textDecoration:"none"}}>
-                    <Button  variant="contained" style={{color:"white",backgroundColor:"rgba(255,255,255,0.3)"}}>
+                    <Button  variant="contained" className="get-lyric" style={{color:"white",backgroundColor:"rgba(255,255,255,0.3)"}}>
                         <BookIcon style={{ fontSize: 16 }}/>
                         Get the lyric
                     </Button>
