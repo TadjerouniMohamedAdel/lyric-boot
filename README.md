@@ -57,6 +57,6 @@ MIT
 ---
 
 > [nagatodev.netlify.app](https://nagatodev.netlify.app/) &nbsp;&middot;&nbsp;
-> GitHub [@AdelMohamedTadejerouni](https://github.com/TadjerouniMohamedAdel) &nbsp;&middot;&nbsp;
+> GitHub [@AdelMohamedTadjerouni](https://github.com/TadjerouniMohamedAdel) &nbsp;&middot;&nbsp;
 > LinkedIn [@adel_mohamed_tadjerouni](https://www.linkedin.com/in/adel-mohamed-tadjerouni-147546164/)
 
