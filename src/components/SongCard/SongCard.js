@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Paper,Button, IconButton } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import BookIcon from '@material-ui/icons/Book';
@@ -6,11 +6,20 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import './SongCard.css'
 
 export default function SongCard({song,isFavorite,toggleFavorite}) {
+    const [imgSrc,setImgSrc] = useState(song.artist.picture_medium.replace("http","https").replace("e-cdn-images.deezer.com","cdns-images.dzcdn.net"))
     console.log("song card",song)
+
+    const onError=()=>{
+        setImgSrc('https://s.mxmcdn.net/site/images/album-placeholder.png')
+    }
     return (
         <Paper key={song.id} className="song-card">
         <div className="song-image">
-            <img src={song.artist.picture_medium.replace("http","https").replace("e-cdn-images.deezer.com","cdns-images.dzcdn.net")} alt={`${song.artist.name}`}/>
+            <img 
+                src={imgSrc} 
+                alt={`${song.artist.name}`}
+                onError={onError}
+                />
         </div>
         <div className="song-favorite">
             <IconButton onClick={()=>toggleFavorite({type:"TOGGLE_FAVORITE",value:song})}>
