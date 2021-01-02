@@ -6,10 +6,11 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import './SongCard.css'
 
 export default function SongCard({song,isFavorite,toggleFavorite}) {
+    console.log("song card",song)
     return (
         <Paper key={song.id} className="song-card">
         <div className="song-image">
-            <img src={song.artist.picture_medium.replace("e-cdn-images.deezer.com","cdns-images.dzcdn.net")} alt={`${song.artist.name}`}/>
+            <img src={song.artist.picture_medium.replace("http","https").replace("e-cdn-images.deezer.com","cdns-images.dzcdn.net")} alt={`${song.artist.name}`}/>
         </div>
         <div className="song-favorite">
             <IconButton onClick={()=>toggleFavorite({type:"TOGGLE_FAVORITE",value:song})}>
